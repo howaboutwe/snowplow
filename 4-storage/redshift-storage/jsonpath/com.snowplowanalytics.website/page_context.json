@@ -15,6 +15,7 @@
     "$.data.category",
     "$.data.subCategory",
     "$.data.author",
+    "$.data.whenPublished",
     "$.data.topics"
     ]
 }

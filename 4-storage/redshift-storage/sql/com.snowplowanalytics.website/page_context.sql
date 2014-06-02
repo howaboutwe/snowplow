@@ -31,6 +31,7 @@ CREATE TABLE atomic.com_snowplowanalytics_website_page_context_1 (
     category       varchar(255)  encode text255,
     sub_category   varchar(255)  encode text255,
     author         varchar(255)  encode text255,
+    when_published timestamp     encode raw not null,
     topics         varchar(2048) encode raw -- Holds a JSON array. TODO: will replace with a ref_ following https://github.com/snowplow/snowplow/issues/647
 )
 DISTSTYLE KEY
