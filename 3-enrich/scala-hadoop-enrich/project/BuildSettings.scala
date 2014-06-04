@@ -71,7 +71,6 @@ object BuildSettings {
   import AssemblyKeys._
   lazy val sbtAssemblySettings = assemblySettings ++ Seq(
 
-   // test in assembly := {},
 
     // Simpler jar name
     jarName in assembly := {
