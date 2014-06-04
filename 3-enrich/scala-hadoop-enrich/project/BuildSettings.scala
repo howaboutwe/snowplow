@@ -71,6 +71,7 @@ object BuildSettings {
   import AssemblyKeys._
   lazy val sbtAssemblySettings = assemblySettings ++ Seq(
 
+
     // Simpler jar name
     jarName in assembly := {
       name.value + "-" + version.value + ".jar"
@@ -101,6 +102,7 @@ object BuildSettings {
         case x => old(x)
       }
     }
+
   )
 
   lazy val buildSettings = basicSettings ++ scalifySettings ++ maxmindSettings ++ sbtAssemblySettings

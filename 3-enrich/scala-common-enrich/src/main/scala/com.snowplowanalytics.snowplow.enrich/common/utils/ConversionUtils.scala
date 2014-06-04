@@ -201,7 +201,9 @@ object ConversionUtils {
    */       
   def stringToUri(uri: String): Validation[String, Option[URI]] =
     try {
-      val r = uri.replaceAll(" ", "%20") // Because so many raw URIs are bad, #346
+      val r = uri.replaceAll(" ", "%20") //.replaceAll(":", "%3A") // Because so many raw URIs are bad, #346
+                 .replaceAll("\\{", "%7B")
+                 .replaceAll("\\}", "%7D")
       Some(URI.create(r)).success
     } catch {
       case npe: NullPointerException => None.success
@@ -227,7 +229,7 @@ object ConversionUtils {
    */
   val stringToJInteger: (String, String) => Validation[String, JInteger] = (field, str) =>
     try {
-      val jint: JInteger = str.toInt
+      val jint: JInteger = str.toFloat.round
       jint.success
     } catch {
       case nfe: NumberFormatException =>
