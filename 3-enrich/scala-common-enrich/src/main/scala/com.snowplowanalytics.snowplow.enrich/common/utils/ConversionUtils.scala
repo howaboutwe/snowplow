@@ -229,7 +229,7 @@ object ConversionUtils {
    */
   val stringToJInteger: (String, String) => Validation[String, JInteger] = (field, str) =>
     try {
-      val jint: JInteger = str.toFloat.round.toInt
+      val jint: JInteger = str.toFloat.round
       jint.success
     } catch {
       case nfe: NumberFormatException =>
