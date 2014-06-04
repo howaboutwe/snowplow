@@ -86,7 +86,7 @@ object ClientEnrichments {
     res match {
       case ResRegex(width, height) =>
         try {
-          (width.toInt: JInteger, height.toInt: JInteger).success
+          (width.toFloat.round.toInt: JInteger, height.toFloat.round.toInt: JInteger).success
         } catch {
           case _ => "Field [%s]: view dimensions [%s] exceed Integer's max range".format(field, res).fail
         }
